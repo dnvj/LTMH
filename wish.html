@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>LMTH</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="wish.css">
+	<link rel="shortcut icon" href="favicon/favicon-32x32.ico">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" 
+href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="img1">
+<img src="sweet.png">
+</div>
+<div class="img2">
+<img src="sweet.png">
+</div>
+<div class="page">
+	<header class="header">
+		<a href="index.html">
+		<h2 class="h2"> <img src="logo.png" class="logo"></img>LMTH</h2></a>
+		<nav class="nav">
+  <a href="HTML.html" class="nav-item" active-color="orange">HTML</a>
+  <a href="CSS.html" class="nav-item" active-color="green">CSS</a>
+  <a href="JavaScript.html" class="nav-item" active-color="blue">JavaScript</a>
+  <a href="wish.html" class="nav-item is-active" active-color="red">Побажання</a>
+  <span class="nav-indicator"></span>
+</nav>
+
+<script  src="script.js"></script>
+		<nav role="navigation">
+  <div id="menuToggle">
+    <input type="checkbox" />
+    <span></span>
+    <span></span>
+    <span></span>
+    <ul id="menu">
+      <a href="index.html"><li>Головна сторінка</li></a>
+      <a href="about.html"><li>Про нас</li></a>
+      <a href="blog.html"><li>Блог</li></a>
+      <a href="contact.html"><li>Контакти</li></a>
+    </ul>
+  </div>
+</nav>
+	</header>
+<canvas id="sky"></canvas>
+<script src="js/script6.js"></script>
+	<main class="content">
+            <h1 class="title">Побажання</h1><br>
+			<p class="text">З Новим роком! Нехай цей рік принесе вам тільки все найкраще. 
+			Нехай вас супроводжує удача, успіх і везіння. Бажаю всім міцного здоров'я, 
+			справжнього щастя і гарного настрою. Нехай вас завжди оточують улюблені люди.</p>
+			</main>
+	<footer class="footer">
+	<div class="waves">
+    <div class="wave" id="wave1"></div>
+    <div class="wave" id="wave2"></div>
+    <div class="wave" id="wave3"></div>
+    <div class="wave" id="wave4"></div>
+  </div>
+        <div class="footer-content">
+            <h3>LMTH</h3>
+            <p>LTMH - це веб-сайт блогу, в якому ви можете знайти інформацію 
+			яка вас цікавить з мов HTML, CSS та JavaScript.</p>
+            <ul class="socials">
+                <li><a href="https://www.facebook.com/settings?tab=account&view" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/LTMH80962846" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="mailto:ltmh917783@gmail.com"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="https://www.youtube.com/@ltmh1287" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/lt-mh-95290925a/" target="_blank"><i class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy;2022 <a href="#">LMTH</a>  </p>
+                    <div class="footer-menu">
+                      <ul class="f-menu">
+                        <li><a href="index.html">Головна сторінка</a></li>
+                        <li><a href="about.html">Про нас</a></li>
+                        <li><a href="contact.html">Контакти</a></li>
+                        <li><a href="blog.html">Блог</a></li>
+                      </ul>
+                    </div>
+        </div>
+
+    </footer>
+	</div>
+			      <script id="rendered-js" >
+const indicator = document.querySelector('.nav-indicator');
+const items = document.querySelectorAll('.nav-item');
+
+function handleIndicator(el) {
+  items.forEach(item => {
+    item.classList.remove('is-active');
+    item.removeAttribute('style');
+  });
+
+  indicator.style.width = `${el.offsetWidth}px`;
+  indicator.style.left = `${el.offsetLeft}px`;
+  indicator.style.backgroundColor = el.getAttribute('active-color');
+
+  el.classList.add('is-active');
+  el.style.color = el.getAttribute('active-color');
+}
+
+
+items.forEach((item, index) => {
+  item.addEventListener('click', e => {handleIndicator(e.target);});
+  item.classList.contains('is-active') && handleIndicator(item);
+});
+//# sourceURL=pen.js
+    </script>
+</body>
+</html>

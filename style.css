@@ -1,0 +1,1276 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:500,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+.nav {
+  left: 35%;
+  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  padding: 0 20px;
+  border-radius: 40px;
+  box-shadow: 0 2px 5px rgba(159, 162, 177, 0.6);
+}
+.nav-item {
+  color: #83818c;
+  padding: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin: 0 6px;
+  z-index: 1;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  position: relative;
+}
+.nav-item:before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #dfe2ea;
+  border-radius: 8px 8px 0 0;
+  opacity: 0;
+  transition: 0.3s;
+}
+.nav-item:not(.is-active):hover:before {
+  opacity: 1;
+  bottom: 0;
+}
+.nav-item:not(.is-active):hover {
+  color: #333;
+}
+.nav-indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  transition: 0.4s;
+  height: 5px;
+  z-index: 1;
+  border-radius: 8px 8px 0 0;
+}
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: -38px;
+  left: 95%;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #969295;
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: tomato;
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  -webkit-touch-callout: none;
+}
+
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 3px;
+  z-index: -1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu
+{
+  z-index: 5;
+  position: absolute;
+  width: 300px;
+  margin: 18px 0 0 -260px;
+  padding: 50px;
+  padding-top: 75px;
+  padding-bottom: -50px;
+  background: #4f474c;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(0, -120%);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 15px 0;
+  font-size: 22px;
+  border-bottom: 2px groove grey;
+}
+
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+body {
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #fff;
+	background-color: #111;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.page {
+    overflow: hidden;
+    display: grid;
+    grid-template-areas: "header" "content" "footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.header{
+	position: fixed;
+	z-index: 5;
+	background-color: #000;
+	width: 100%
+}
+
+.header h2{
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	position: absolute;
+	margin-top: 5px;
+	left: 7%;
+	color: orange;
+}
+
+
+.header{
+	height: 60px;
+}
+
+.footer {
+  position: relative;
+  margin-top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: auto;
+  background: #4A4E55;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url(images/wave.png);
+  background-size: 1000px 100px;
+}
+
+.footer .wave#wave1 {
+  z-index: 1;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWave 4s linear infinite;
+}
+
+.footer .wave#wave2 {
+  z-index: 1;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animateWave_02 4s linear infinite;
+}
+.footer .wave#wave3 {
+  z-index: 1;
+  opacity: 0.2;
+  bottom: 0;
+  animation: animateWave 3s linear infinite;
+}
+
+.footer .wave#wave4 {
+  z-index: 1;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animateWave_02 3s linear infinite;
+}
+
+@keyframes animateWave {
+  0%{
+    background-position-x: 1000px; 
+  }
+  100%{
+    background-position-x: 0px; 
+  }
+}
+
+@keyframes animateWave_02 {
+  0%{
+    background-position-x: 0px; 
+  }
+  100%{
+    background-position-x: 1000px; 
+  }
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-content h3{
+    font-size: 2.1rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+    color: #cacdd2;
+}
+
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+
+.socials li{
+    margin: 0 10px;
+}
+
+.socials a{
+    text-decoration: none;
+    color: #fff;
+    border: 1.1px solid white;
+    padding: 5px;
+
+    border-radius: 50%;
+
+}
+.socials a i{
+    font-size: 1.1rem;
+    width: 20px;
+
+
+    transition: color .4s ease;
+
+}
+
+.socials a:hover i{
+    color: aqua;
+}
+
+.footer-bottom{
+    background: #000;
+    width: 100vw;
+    padding: 20px;
+	padding-bottom: 20px;
+    text-align: center;
+}
+.footer-bottom p{
+float: left;
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+.footer-bottom p a{
+  color:#44bae8;
+  font-size: 16px;
+  text-decoration: none;
+}
+.footer-bottom span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+}
+.footer-menu{
+  float: right;
+
+}
+.footer-menu ul{
+  display: flex;
+}
+.footer-menu ul li{
+padding-right: 25px;
+display: block;
+}
+.footer-menu ul li a{
+  color: #cfd2d6;
+  text-decoration: none;
+}
+.footer-menu ul li a:hover{
+  color: #27bcda;
+}
+      
+@media (max-width:500px) {
+.footer-menu ul{
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: block;
+  min-height: 100vh;
+}
+
+.content {
+	background-color: #111;
+    max-width: 800px;
+    margin: auto;
+	margin-top: 50px;
+	margin-bottom: 100px;
+	z-index: 2;
+    padding: 40px 20px;
+}
+
+.content p {
+	font-family: 'Press Start 2P', cursive;
+	font-size: 13px;
+	margin-top: 18%;
+}
+
+.content a {
+  text-align: center;
+  position: relative;
+  background: white;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: 10px 30px;
+  transition: 0.5s;
+}
+
+.title {
+	font-family: 'Press Start 2P', cursive;
+	text-align: center;
+}
+
+.content .a1 {
+	position: absolute;
+	margin-top: 0%;
+	left: 410px;
+}
+
+.content .a2 {
+	position: absolute;
+	margin-top: 0%;
+	left: 770px;
+}
+
+.content .a3 {
+	position: absolute;
+	margin-top: 3.5%;
+	left: 410px;
+}
+
+ .a1 {
+	width: 340px;
+}
+
+ .a2 {
+	width: 340px;
+}
+
+ .a3 {
+	width: 700px;
+}
+
+ .a1 + .a2 + .a3 {
+  margin-top: 20px;
+}
+
+.content a span {
+  position: relative;
+}
+.content a i {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.content a i:hover::before {
+  width: 20px;
+  left: 20%;
+}
+.content a i:hover::after {
+  width: 20px;
+  left: 80%;
+}
+.content a i::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 80%;
+  width: 10px;
+  height: 4px;
+  background: #27282c;
+  transform: translateX(-50%) skewX(325deg);
+  transition: 0.5s;
+}
+.content a i::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 10px;
+  height: 4px;
+  background: #27282c;
+  transform: translateX(-50%) skewX(325deg);
+  transition: 0.5s;
+}
+.content a:hover {
+  background: var(--clr);
+  letter-spacing: 0.25em;
+  color: var(--clr);
+  box-shadow: 0 0 35px var(--clr);
+}
+.content a::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #27282c;
+}
+
+h3 {
+  margin:5px 0; 
+}
+
+.sliderContainer {
+	margin-top: 50px;
+  position: relative;
+  border-radius: 30px;
+}
+
+.slider {
+	box-shadow:0 0 40px 1px #74cfb3;
+	border-radius: 30px;
+  width: 800px;
+  margin: 20px -30px 50px;
+}
+
+.slick-slide {
+	border-radius: 30px;
+  color: white;
+  padding: 80px 0 120px;
+  font-size: 30px;
+  font-family: "Arial", "Helvetica";
+  text-align: center;
+}
+
+.slick-prev:before,
+.slick-next:before {
+	border-radius: 30px;
+  color: black;
+}
+
+.slick-dots {
+  bottom: -30px;
+}
+
+.slick-slide:nth-child(2) {
+	border-radius: 30px;
+	width: 10%;
+  background-image: url(images/HTML.png);
+}
+
+.slick-slide:nth-child(3) {
+	border-radius: 30px;
+	width: 10%;
+  background-image: url(images/CSS.png);
+}
+
+.slick-slide:nth-child(4) {
+	border-radius: 30px;
+	width: 10%;
+  background-image: url(images/JavaScript.png);
+}
+
+.progressBarContainer {
+  position: absolute;
+  bottom: 20px;
+  width:300px;
+  left:150px;
+}
+
+.progressBarContainer div {
+  display: block;
+  width: 30%;
+  padding: 0;
+  cursor: pointer;
+  margin-right: 5%;
+  float: left;
+  color: white;
+}
+
+.progressBarContainer div:last-child {
+  margin-right: 0;
+}
+
+.progressBarContainer div span.progressBar {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.4);
+  display: block;
+}
+
+.progressBarContainer div span.progressBar .inProgress {
+  background-color: rgba(255, 255, 255, 1);
+  width: 0%;
+  height: 4px;
+}
+
+.aside {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  padding-top: 20px;
+}
+
+.fall {
+  position: relative;
+  transform-style: preserve-3d;
+  -webkit-animation: fallRotate 42s infinite linear;
+          animation: fallRotate 42s infinite linear;
+}
+@-webkit-keyframes fallRotate {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes fallRotate {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.walls {
+  transform-style: preserve-3d;
+}
+
+.wall {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  transform-style: preserve-3d;
+  background-image: linear-gradient(#0007, #000c);
+  -webkit-animation: move 15s infinite linear;
+          animation: move 15s infinite linear;
+  bottom: -210px;
+}
+.wall:nth-child(odd) {
+  left: -10px;
+  transform: translate(-50%, 50%) rotateY(90deg) rotateX(45deg) translatez(-10px) translateY(-110px);
+}
+.wall:nth-child(even) {
+  left: 10px;
+  transform: translate(-50%, 50%) rotateY(-90deg) rotateX(45deg) translatez(-10px) translateY(-110px);
+}
+.wall:nth-child(1) {
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+  background-color: #ef8f8f;
+}
+.wall:nth-child(2) {
+  -webkit-animation-delay: -3s;
+          animation-delay: -3s;
+  background-color: #efc98f;
+}
+.wall:nth-child(3) {
+  -webkit-animation-delay: -4.5s;
+          animation-delay: -4.5s;
+  background-color: #dcef8f;
+}
+.wall:nth-child(4) {
+  -webkit-animation-delay: -6s;
+          animation-delay: -6s;
+  background-color: #a3ef8f;
+}
+.wall:nth-child(5) {
+  -webkit-animation-delay: -7.5s;
+          animation-delay: -7.5s;
+  background-color: #8fefb6;
+}
+.wall:nth-child(6) {
+  -webkit-animation-delay: -9s;
+          animation-delay: -9s;
+  background-color: #8fefef;
+}
+.wall:nth-child(7) {
+  -webkit-animation-delay: -10.5s;
+          animation-delay: -10.5s;
+  background-color: #8fb6ef;
+}
+.wall:nth-child(8) {
+  -webkit-animation-delay: -12s;
+          animation-delay: -12s;
+  background-color: #a38fef;
+}
+.wall:nth-child(9) {
+  -webkit-animation-delay: -13.5s;
+          animation-delay: -13.5s;
+  background-color: #dc8fef;
+}
+.wall:nth-child(10) {
+  -webkit-animation-delay: -15s;
+          animation-delay: -15s;
+  background-color: #ef8fc9;
+}
+@-webkit-keyframes move {
+  from {
+    bottom: -1210px;
+  }
+  to {
+    bottom: 800px;
+  }
+}
+@keyframes move {
+  from {
+    bottom: -1210px;
+  }
+  to {
+    bottom: 800px;
+  }
+}
+.wall > div {
+  position: absolute;
+  background-color: inherit;
+}
+.wall .ceil {
+  width: 40px;
+  height: 40px;
+  background-image: linear-gradient(#fff7, #fff0);
+  -webkit-animation: wallCeil 15s infinite linear;
+          animation: wallCeil 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+  overflow: hidden;
+}
+.wall .ceil::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#000, #0000 50%);
+  -webkit-animation: shadow 15s infinite linear;
+          animation: shadow 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+@-webkit-keyframes shadow {
+  0%, 48%, 53%, 100% {
+    opacity: 0;
+    transform: translateY(40px) scale(2);
+  }
+  50% {
+    opacity: 0.25;
+    transform: translateY(2px) scale(0.5);
+  }
+}
+@keyframes shadow {
+  0%, 48%, 53%, 100% {
+    opacity: 0;
+    transform: translateY(40px) scale(2);
+  }
+  50% {
+    opacity: 0.25;
+    transform: translateY(2px) scale(0.5);
+  }
+}
+.wall .top {
+  width: 40px;
+  transform: rotateX(90deg);
+  transform-origin: top;
+  background-image: linear-gradient(#0007, #fff7);
+  -webkit-animation: wallHeight 15s infinite linear;
+          animation: wallHeight 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+.wall .bottom {
+  bottom: 0;
+  width: 40px;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  background-image: linear-gradient(#fff0, #000c);
+  -webkit-animation: wallHeight 15s infinite linear;
+          animation: wallHeight 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+.wall .left {
+  bottom: 0;
+  height: 40px;
+  transform: rotateY(-90deg);
+  transform-origin: left;
+  background-image: linear-gradient(to bottom left, #fff3, #000c);
+  -webkit-animation: wallWidth 15s infinite linear;
+          animation: wallWidth 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+.wall .right {
+  bottom: 0;
+  right: 0;
+  height: 40px;
+  transform: rotateY(90deg);
+  transform-origin: right;
+  background-image: linear-gradient(to bottom right, #fff3, #000c);
+  -webkit-animation: wallWidth 15s infinite linear;
+          animation: wallWidth 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+@-webkit-keyframes wallCeil {
+  0%, 49.75%, 55%, 100% {
+    transform: translateZ(10px);
+  }
+  50% {
+    transform: translateZ(5px);
+  }
+}
+@keyframes wallCeil {
+  0%, 49.75%, 55%, 100% {
+    transform: translateZ(10px);
+  }
+  50% {
+    transform: translateZ(5px);
+  }
+}
+@-webkit-keyframes wallHeight {
+  0%, 49.75%, 55%, 100% {
+    height: 10px;
+  }
+  50% {
+    height: 5px;
+  }
+}
+@keyframes wallHeight {
+  0%, 49.75%, 55%, 100% {
+    height: 10px;
+  }
+  50% {
+    height: 5px;
+  }
+}
+@-webkit-keyframes wallWidth {
+  0%, 49.75%, 55%, 100% {
+    width: 10px;
+  }
+  50% {
+    width: 5px;
+  }
+}
+@keyframes wallWidth {
+  0%, 49.75%, 55%, 100% {
+    width: 10px;
+  }
+  50% {
+    width: 5px;
+  }
+}
+
+.ballArm {
+  position: absolute;
+  bottom: -205px;
+  width: 10px;
+  height: 120px;
+  transform-origin: bottom;
+  transform-style: preserve-3d;
+  -webkit-animation: armRotate 1.5s infinite linear alternate;
+          animation: armRotate 1.5s infinite linear alternate;
+}
+@-webkit-keyframes armRotate {
+  from {
+    transform: translateX(-50%) rotate(-45deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
+@keyframes armRotate {
+  from {
+    transform: translateX(-50%) rotate(-45deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
+
+.ball {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 10%;
+  transform-style: preserve-3d;
+  -webkit-animation: ballRotateZ 1.5s infinite linear alternate;
+          animation: ballRotateZ 1.5s infinite linear alternate;
+}
+@-webkit-keyframes ballRotateZ {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(-45deg);
+  }
+}
+@keyframes ballRotateZ {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(-45deg);
+  }
+}
+.ball::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-image: radial-gradient(circle at top, #fff, #222);
+  border-radius: 50%;
+  -webkit-animation: ballRotateY 42s infinite linear;
+          animation: ballRotateY 42s infinite linear;
+}
+@-webkit-keyframes ballRotateY {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+@keyframes ballRotateY {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+.aside1 {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  padding-top: 20px;
+}
+
+.fall1 {
+  position: relative;
+  transform-style: preserve-3d;
+  -webkit-animation: fallRotate 42s infinite linear;
+          animation: fallRotate 42s infinite linear;
+}
+@-webkit-keyframes fall1Rotate {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes fall1Rotate {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.walls1 {
+  transform-style: preserve-3d;
+}
+
+.wall1 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  transform-style: preserve-3d;
+  background-image: linear-gradient(#0007, #000c);
+  -webkit-animation: move 15s infinite linear;
+          animation: move 15s infinite linear;
+  bottom: -210px;
+}
+.wall1:nth-child(odd) {
+  left: -10px;
+  transform: translate(-50%, 50%) rotateY(90deg) rotateX(45deg) translatez(-10px) translateY(-110px);
+}
+.wall1:nth-child(even) {
+  left: 10px;
+  transform: translate(-50%, 50%) rotateY(-90deg) rotateX(45deg) translatez(-10px) translateY(-110px);
+}
+.wall1:nth-child(1) {
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+  background-color: #ef8f8f;
+}
+.wall1:nth-child(2) {
+  -webkit-animation-delay: -3s;
+          animation-delay: -3s;
+  background-color: #efc98f;
+}
+.wall1:nth-child(3) {
+  -webkit-animation-delay: -4.5s;
+          animation-delay: -4.5s;
+  background-color: #dcef8f;
+}
+.wall1:nth-child(4) {
+  -webkit-animation-delay: -6s;
+          animation-delay: -6s;
+  background-color: #a3ef8f;
+}
+.wall1:nth-child(5) {
+  -webkit-animation-delay: -7.5s;
+          animation-delay: -7.5s;
+  background-color: #8fefb6;
+}
+.wall1:nth-child(6) {
+  -webkit-animation-delay: -9s;
+          animation-delay: -9s;
+  background-color: #8fefef;
+}
+.wall1:nth-child(7) {
+  -webkit-animation-delay: -10.5s;
+          animation-delay: -10.5s;
+  background-color: #8fb6ef;
+}
+.wall1:nth-child(8) {
+  -webkit-animation-delay: -12s;
+          animation-delay: -12s;
+  background-color: #a38fef;
+}
+.wall1:nth-child(9) {
+  -webkit-animation-delay: -13.5s;
+          animation-delay: -13.5s;
+  background-color: #dc8fef;
+}
+.wall1:nth-child(10) {
+  -webkit-animation-delay: -15s;
+          animation-delay: -15s;
+  background-color: #ef8fc9;
+}
+@-webkit-keyframes move {
+  from {
+    bottom: -1210px;
+  }
+  to {
+    bottom: 800px;
+  }
+}
+@keyframes move {
+  from {
+    bottom: -1210px;
+  }
+  to {
+    bottom: 800px;
+  }
+}
+.wall1 > div {
+  position: absolute;
+  background-color: inherit;
+}
+.wall1 .ceil1 {
+  width: 40px;
+  height: 40px;
+  background-image: linear-gradient(#fff7, #fff0);
+  -webkit-animation: wallCeil 15s infinite linear;
+          animation: wallCeil 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+  overflow: hidden;
+}
+.wall1 .ceil1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#000, #0000 50%);
+  -webkit-animation: shadow 15s infinite linear;
+          animation: shadow 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+@-webkit-keyframes shadow {
+  0%, 48%, 53%, 100% {
+    opacity: 0;
+    transform: translateY(40px) scale(2);
+  }
+  50% {
+    opacity: 0.25;
+    transform: translateY(2px) scale(0.5);
+  }
+}
+@keyframes shadow {
+  0%, 48%, 53%, 100% {
+    opacity: 0;
+    transform: translateY(40px) scale(2);
+  }
+  50% {
+    opacity: 0.25;
+    transform: translateY(2px) scale(0.5);
+  }
+}
+.wall1 .top1 {
+  width: 40px;
+  transform: rotateX(90deg);
+  transform-origin: top;
+  background-image: linear-gradient(#0007, #fff7);
+  -webkit-animation: wallHeight 15s infinite linear;
+          animation: wallHeight 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+.wall1 .bottom1 {
+  bottom: 0;
+  width: 40px;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  background-image: linear-gradient(#fff0, #000c);
+  -webkit-animation: wallHeight 15s infinite linear;
+          animation: wallHeight 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+.wall1 .left1 {
+  bottom: 0;
+  height: 40px;
+  transform: rotateY(-90deg);
+  transform-origin: left;
+  background-image: linear-gradient(to bottom left, #fff3, #000c);
+  -webkit-animation: wallWidth 15s infinite linear;
+          animation: wallWidth 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+.wall1 .right1 {
+  bottom: 0;
+  right: 0;
+  height: 40px;
+  transform: rotateY(90deg);
+  transform-origin: right;
+  background-image: linear-gradient(to bottom right, #fff3, #000c);
+  -webkit-animation: wallWidth 15s infinite linear;
+          animation: wallWidth 15s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+@-webkit-keyframes wall1Ceil {
+  0%, 49.75%, 55%, 100% {
+    transform: translateZ(10px);
+  }
+  50% {
+    transform: translateZ(5px);
+  }
+}
+@keyframes wall1Ceil {
+  0%, 49.75%, 55%, 100% {
+    transform: translateZ(10px);
+  }
+  50% {
+    transform: translateZ(5px);
+  }
+}
+@-webkit-keyframes wall1Height {
+  0%, 49.75%, 55%, 100% {
+    height: 10px;
+  }
+  50% {
+    height: 5px;
+  }
+}
+@keyframes wall1Height {
+  0%, 49.75%, 55%, 100% {
+    height: 10px;
+  }
+  50% {
+    height: 5px;
+  }
+}
+@-webkit-keyframes wall1Width {
+  0%, 49.75%, 55%, 100% {
+    width: 10px;
+  }
+  50% {
+    width: 5px;
+  }
+}
+@keyframes wall1Width {
+  0%, 49.75%, 55%, 100% {
+    width: 10px;
+  }
+  50% {
+    width: 5px;
+  }
+}
+
+.ballArm1 {
+  position: absolute;
+  bottom: -205px;
+  width: 10px;
+  height: 120px;
+  transform-origin: bottom;
+  transform-style: preserve-3d;
+  -webkit-animation: armRotate 1.5s infinite linear alternate;
+          animation: armRotate 1.5s infinite linear alternate;
+}
+@-webkit-keyframes arm1Rotate {
+  from {
+    transform: translateX(-50%) rotate(-45deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
+@keyframes arm1Rotate {
+  from {
+    transform: translateX(-50%) rotate(-45deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
+
+.ball1 {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 10%;
+  transform-style: preserve-3d;
+  -webkit-animation: ballRotateZ 1.5s infinite linear alternate;
+          animation: ballRotateZ 1.5s infinite linear alternate;
+}
+@-webkit-keyframes ball1RotateZ {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(-45deg);
+  }
+}
+@keyframes ball1RotateZ {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(-45deg);
+  }
+}
+.ball1::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-image: radial-gradient(circle at top, #fff, #222);
+  border-radius: 50%;
+  -webkit-animation: ballRotateY 42s infinite linear;
+          animation: ballRotateY 42s infinite linear;
+}
+@-webkit-keyframes ball1RotateY {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+@keyframes ball1RotateY {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+.logo {
+	position: relative;
+	width: 60px;
+}

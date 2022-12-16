@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>LMTH</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="contact.css">
+	<link rel="shortcut icon" href="favicon/favicon-32x32.ico">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" 
+href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="page">
+	<header class="header">
+		<a href="index.html">
+		<h2 class="h2"> <img src="logo.png" class="logo"></img>LMTH</h2></a>
+		<nav class="nav">
+  <a href="HTML.html" class="nav-item" active-color="orange">HTML</a>
+  <a href="CSS.html" class="nav-item" active-color="green">CSS</a>
+  <a href="JavaScript.html" class="nav-item" active-color="blue">JavaScript</a>
+  <a href="wish.html" class="nav-item" active-color="red">Побажання</a>
+  <span class="nav-indicator"></span>
+</nav>
+
+<script  src="script.js"></script>
+
+		<nav role="navigation">
+  <div id="menuToggle">
+    <input type="checkbox" />
+    <span></span>
+    <span></span>
+    <span></span>
+    <ul id="menu">
+      <a href="index.html"><li>Головна сторінка</li></a>
+      <a href="about.html"><li>Про нас</li></a>
+      <a href="blog.html"><li>Блог</li></a>
+      <a href="contact.html"><li>Контакти</li></a>
+    </ul>
+  </div>
+</nav>
+	</header>
+	<canvas id="test" width="1536" height="282"></canvas>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+      <script id="rendered-js">
+var w = window.innerWidth,
+h = window.innerHeight,
+canvas = document.getElementById('test'),
+ctx = canvas.getContext('2d'),
+rate = 60,
+arc = 100,
+time,
+count,
+size = 7,
+speed = 20,
+parts = new Array(),
+colors = ['red', '#f57900', 'yellow', '#ce5c00', '#5c3566'];
+var mouse = { x: 0, y: 0 };
+
+canvas.setAttribute('width', w);
+canvas.setAttribute('height', h);
+
+function create() {
+  time = 0;
+  count = 0;
+
+  for (var i = 0; i < arc; i++) {if (window.CP.shouldStopExecution(0)) break;
+    parts[i] = {
+      x: Math.ceil(Math.random() * w),
+      y: Math.ceil(Math.random() * h),
+      toX: Math.random() * 5 - 1,
+      toY: Math.random() * 2 - 1,
+      c: colors[Math.floor(Math.random() * colors.length)],
+      size: Math.random() * size };
+
+  }window.CP.exitedLoop(0);
+}
+
+function particles() {
+  ctx.clearRect(0, 0, w, h);
+  canvas.addEventListener('mousemove', MouseMove, false);
+  for (var i = 0; i < arc; i++) {if (window.CP.shouldStopExecution(1)) break;
+    var li = parts[i];
+    var distanceFactor = DistanceBetween(mouse, parts[i]);
+    var distanceFactor = Math.max(Math.min(15 - distanceFactor / 10, 10), 1);
+    ctx.beginPath();
+    ctx.arc(li.x, li.y, li.size * distanceFactor, 0, Math.PI * 2, false);
+    ctx.fillStyle = li.c;
+    ctx.strokeStyle = li.c;
+    if (i % 2 == 0)
+    ctx.stroke();else
+
+    ctx.fill();
+
+    li.x = li.x + li.toX * (time * 0.05);
+    li.y = li.y + li.toY * (time * 0.05);
+
+    if (li.x > w) {
+      li.x = 0;
+    }
+    if (li.y > h) {
+      li.y = 0;
+    }
+    if (li.x < 0) {
+      li.x = w;
+    }
+    if (li.y < 0) {
+      li.y = h;
+    }
+
+
+  }window.CP.exitedLoop(1);
+  if (time < speed) {
+    time++;
+  }
+  setTimeout(particles, 1000 / rate);
+}
+function MouseMove(e) {
+  mouse.x = e.layerX;
+  mouse.y = e.layerY;
+
+  //context.fillRect(e.layerX, e.layerY, 5, 5);
+  //Draw( e.layerX, e.layerY );
+}
+function DistanceBetween(p1, p2) {
+  var dx = p2.x - p1.x;
+  var dy = p2.y - p1.y;
+  return Math.sqrt(dx * dx + dy * dy);
+}
+create();
+particles();
+//# sourceURL=pen.js
+    </script>
+	<main class="content">
+            <h1 class="title">Контакти</h1><br>
+			<p class="text">Якщо у вас виникли питання чи пропозиції, 
+			ви завжди можете звернутися за цими контактними данними:</p><br>
+			<div class="outer">
+			<div class="inner2"><button class="Btn"><a href="mailto:ltmh917783@gmail.com"><i class="fa fa-google-plus fa-10x"></i></a></button></div>
+			<div class="inner"><button class="Btn"><a href="https://www.facebook.com/settings?tab=account&view" target="_blank"><i class="fa fa-facebook fa-10x"></i></a></button></div>
+			<div class="inner"><button class="Btn"><a href="https://www.instagram.com/ltmh917783/"><i class="fa fa-instagram fa-10x"></i></a></button></div><br>
+			<div class="inner3"><button class="Btn1"><a href="https://twitter.com/LTMH80962846" target="_blank"><i class="fa fa-twitter fa-10x"></i></a></button></div>
+			<div class="inner1"><button class="Btn1"><a href="https://www.linkedin.com/in/lt-mh-95290925a/" target="_blank"><i class="fa fa-linkedin-square fa-10x"></i></a></button></div>
+			<div class="inner1"><button class="Btn1"><a href="https://www.youtube.com/@ltmh1287" target="_blank"><i class="fa fa-youtube fa-10x"></i></a></button></div>
+			</div>
+			</main>
+	<footer class="footer">
+	<div class="waves">
+    <div class="wave" id="wave1"></div>
+    <div class="wave" id="wave2"></div>
+    <div class="wave" id="wave3"></div>
+    <div class="wave" id="wave4"></div>
+  </div>
+        <div class="footer-content">
+            <h3>LMTH</h3>
+            <p>LTMH - це веб-сайт блогу, в якому ви можете знайти інформацію 
+			яка вас цікавить з мов HTML, CSS та JavaScript.</p>
+            <ul class="socials">
+                <li><a href="https://www.facebook.com/settings?tab=account&view" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/LTMH80962846" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="mailto:ltmh917783@gmail.com"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="https://www.youtube.com/@ltmh1287" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/lt-mh-95290925a/" target="_blank"><i class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy;2022 <a href="#">LMTH</a>  </p>
+                    <div class="footer-menu">
+                      <ul class="f-menu">
+                        <li><a href="index.html">Головна сторінка</a></li>
+                        <li><a href="about.html">Про нас</a></li>
+                        <li><a href="contact.html">Контакти</a></li>
+                        <li><a href="blog.html">Блог</a></li>
+                      </ul>
+                    </div>
+        </div>
+
+    </footer>
+	</div>
+			      <script id="rendered-js" >
+const indicator = document.querySelector('.nav-indicator');
+const items = document.querySelectorAll('.nav-item');
+
+function handleIndicator(el) {
+  items.forEach(item => {
+    item.classList.remove('is-active');
+    item.removeAttribute('style');
+  });
+
+  indicator.style.width = `${el.offsetWidth}px`;
+  indicator.style.left = `${el.offsetLeft}px`;
+  indicator.style.backgroundColor = el.getAttribute('active-color');
+
+  el.classList.add('is-active');
+  el.style.color = el.getAttribute('active-color');
+}
+
+
+items.forEach((item, index) => {
+  item.addEventListener('click', e => {handleIndicator(e.target);});
+  item.classList.contains('is-active') && handleIndicator(item);
+});
+//# sourceURL=pen.js
+    </script>
+</body>
+</html>
