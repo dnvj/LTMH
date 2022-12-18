@@ -413,7 +413,7 @@ iframe {
 	height: 378px;
 	margin-top: 50px;
 	border-radius: 20px;
-	box-shadow:0 0 40px 1px orange;
+	box-shadow:0 0 40px 1px green;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
@@ -431,7 +431,7 @@ iframe {
 	box-shadow:0 0 40px 1px white;
 	margin-top: 500px;
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
@@ -448,7 +448,6 @@ iframe {
     pointer-events: auto;
     transform: translate(-50%, -50%) scale(1);
 }
-
 
 .start_btn button{
 	box-shadow:0 0 40px 1px white;
