@@ -424,19 +424,7 @@ iframe {
     background: #007bff;
 }
 
-.start_btn,
-.info_box,
-.quiz_box,
-.result_box{
-	box-shadow:0 0 40px 1px white;
-	margin-top: 500px;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
-                0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+
 
 .info_box.activeInfo,
 .quiz_box.activeQuiz,
